@@ -1,0 +1,134 @@
+*, :after, :before {
+  box-sizing:border-box
+}
+html, body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Nunito Sans', Arial, sans-serif;
+  font-size: 1.4em;
+  font-weight: 400;
+  background-color: #F0F3F4;
+}
+
+h1 {
+  margin: 0;
+  text-align: center;
+}
+
+input {
+  font-family: 'Nunito Sans', Arial, sans-serif;
+  font-size: 1em;
+}
+input[type=text],
+input[type=time],
+input[type=button] {
+  border: none;
+  padding: 0 5px;
+  margin: 0;
+  outline: none;
+  line-height: 33px;
+  cursor: pointer;
+  transition: transform .2s;
+  background: white;
+}
+input[type=time] {
+  line-height: 31px;
+}
+input[type=text]:focus {
+  background: #c0d7ff;
+}
+input[type=text]:active,
+input[type=time]:active,
+input[type=button]:active {
+  transform: scale(.95);
+}
+
+.container {
+  width: 100%;
+  padding: 10px;
+}
+
+.half {
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.half > div {
+  float: left;
+  width: 50%;
+}
+
+.events {
+  border-radius: 5px;
+}
+
+.events .event {
+  margin-bottom: 1px;
+  padding: 10px 5px;
+  cursor: not-allowed;
+  font-weight: bold;
+  position: relative;
+  border-bottom: solid 1px #ccc;
+}
+.events .event:first-child .back {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+.events .event:last-child .back {
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+.events .event .help {
+  font-weight: normal;
+  position: absolute;
+  right: 3px;
+  bottom: 3px;
+  color: #ccc;
+  font-size: 0.5em;
+  opacity: 0;
+  transition: opacity .2s;
+  z-index: 3;
+}
+.events .event:hover .help {
+  opacity: 1;
+}
+.events .event .name {
+  display: inline-block;
+  position: relative;
+  color: #fff;
+  z-index: 3;
+}
+.events .event .duration {
+  display: inline-block;
+  position: relative;
+  text-align: right;
+  color: #797979;
+  font-weight: normal;
+  font-size: .7em;
+  z-index: 3;
+  background: rgba(255, 255, 255, .4);
+  padding: 3px 5px;
+  border-radius: 3px;
+}
+
+.events .event .back {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+.events .event .back .overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  transition: left 0.3s;
+  transition-timing-function: linear;
+  background: rgba(255, 255, 255, 0.2);
+}

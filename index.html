@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Time Timer</title>
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans" />
+  <link rel="stylesheet" href="static/style.css" />
+</head>
+<body>
+  
+  <div class="container">
+    <h1>Time Timer</h1>
+    
+    <div class="content">
+      
+      <div class="half">
+        
+        <div class="add">
+          
+          <h2>Add event</h2>
+          
+          <input 
+            type="text" 
+            v-model="eventName" 
+            v-on:keyup.enter="add()" 
+            placeholder="Event name"
+          />
+          <input 
+            type="time" 
+            step="1" 
+            v-model="eventTime" 
+            v-on:keyup.enter="add()" 
+          />
+        </div>
+        
+        <div class="toggle">
+          
+          <h2>Start / Stop</h2>
+          
+          <input 
+            type="button" 
+            v-on:click="toggle()" 
+            v-model="inputToggle" 
+          />
+        </div>
+        
+      </div>
+      
+      <div class="half">
+        
+        <div class="events">
+          <div 
+            class="event" 
+            v-for="(event, key) in events" 
+            v-on:click="remove(key)"
+          >
+            
+            <div class="name">
+              {{ event.name }}
+            </div>
+            <div class="duration">
+              {{ event.durationComputed }}
+            </div>
+            
+            <div 
+              class="back" 
+              v-bind:style="{ backgroundColor: event.color }" 
+            >
+              <div 
+                class="overlay" 
+                v-bind:style="{ left: event.elapseComputed+'%' }" 
+              ></div>
+            </div>
+            
+            <div class="help">Delete ?</div>
+            
+          </div>
+        </div>
+        <div class="timer">
+          
+        </div>
+        
+      </div>
+      
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.6/vue.min.js"></script>
+    <script src="static/script.js"></script>
+</body>
+</html>
